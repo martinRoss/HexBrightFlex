@@ -1,5 +1,12 @@
-HexBright Demo Code 
+Tyler Martin's HexBright Mods
 =======================
+
+hexbright_bike_commuter
+-----------------------
+Software built for the bike commuter. Before loading, change COMMUTETIME to suit your needs. If you need light in the morning and evening, double the time. Firmware includes -
+
+*
+
 
 hexbright_factory
 -----------------

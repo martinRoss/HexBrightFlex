@@ -7,16 +7,19 @@
   v2.4  Dec 6, 2012
   https://github.com/hexbright/samples 
   
-  v0.1  Dec 25, 2012
+  v0.1  Dec 26, 2012
   
 */
 
 #include <math.h>
 #include <Wire.h>
 
+//User Settings
+//#define COMMUTETIME             (30 * 60 * 1000UL) // not using yet
+#define SHUTOFFTIME             (4 * 60 * 1000UL)
+
 // Settings
 #define OVERTEMP                340
-#define COMMUTETIME             (30 * 60 * 1000UL)
 
 // Accelerometer defines
 #define ACC_ADDRESS             0x4C
@@ -52,6 +55,7 @@
 
 // State
 byte mode = 0;
+byte lastMode = 0;
 unsigned long btnTime = 0;
 boolean btnDown = false;
 
@@ -192,14 +196,26 @@ void loop()
   case MODE_LOW:
     if (btnDown && !newBtnDown && (time-btnTime)>50)
       newMode = MODE_MED;
+    if (btnDown && newBtnDown && (time-btnTime)>500) {
+      newMode = MODE_BLINKING_PREVIEW;
+      lastMode = MODE_LOW;
+    }
     break;
   case MODE_MED:
     if (btnDown && !newBtnDown && (time-btnTime)>50)
       newMode = MODE_HIGH;
+    if (btnDown && newBtnDown && (time-btnTime)>500) {
+      newMode = MODE_BLINKING_PREVIEW;  
+      lastMode = MODE_MED;
+    }
     break;
   case MODE_HIGH:
     if (btnDown && !newBtnDown && (time-btnTime)>50)
       newMode = MODE_OFF;
+    if (btnDown && newBtnDown && (time-btnTime)>500) {
+      newMode = MODE_BLINKING_PREVIEW;
+      lastMode = MODE_HIGH;
+    }   
     break;
   case MODE_BLINKING_PREVIEW:
     // This mode exists just to ignore this button release.
@@ -208,12 +224,12 @@ void loop()
     break;
   case MODE_BLINKING:
     if (btnDown && !newBtnDown && (time-btnTime)>50)
-      newMode = MODE_OFF;
+      newMode = lastMode;
     break;
   }
 
   //activity power down
-  if (time-max(lastAccTime,lastModeTime) > 360000UL) { //Power down after 6 minutes 
+  if (time-max(lastAccTime,lastModeTime) > SHUTOFFTIME) { //Power down after 6 minutes 
     newMode = MODE_OFF;
   }
 

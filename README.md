@@ -3,9 +3,10 @@ Tyler Martin's HexBright Mods
 
 hexbright_bike_commuter
 -----------------------
-Software built for the bike commuter. Before loading, change COMMUTETIME to suit your needs. If you need light in the morning and evening, double the time. Firmware includes -
+Software built for the bike commuter. Firmware includes -
 
-*Auto shutoff after 6 mins of inactivity - pulled from https://github.com/bhimoff/HexBrightFLEX
+* Auto shutoff after 6 mins of inactivity
+* Switch to MODE_BLINKING from any other mode with long press. Normal press to go to previous mode
 
 
 hexbright_factory

@@ -229,7 +229,7 @@ void loop()
   }
 
   //activity power down
-  if (time-max(lastAccTime,lastModeTime) > SHUTOFFTIME) { //Power down after 6 minutes 
+  if (time-max(lastAccTime,lastModeTime) > SHUTOFFTIME) { 
     newMode = MODE_OFF;
   }
 

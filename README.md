@@ -5,7 +5,7 @@ hexbright_bike_commuter
 -----------------------
 Software built for the bike commuter. Firmware includes -
 
-* Auto shutoff after 6 mins of inactivity
+* Auto shutoff after 4 mins of inactivity
 * Switch to MODE_BLINKING from any other mode with long press. Normal press to go to previous mode
 
 

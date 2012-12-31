@@ -7,6 +7,10 @@ Software built for the bike commuter. Firmware includes -
 
 * Auto shutoff after 4 mins of inactivity
 * Switch to MODE_BLINKING from any other mode with long press. Normal press to go to previous mode
+* Goal will be to determine max brightness for defined commute time
+* Anyone know if it is possible to measure different ACC levels? Thinking safety features 
+
+Thank you to <a href="https://github.com/bhimoff/HexBrightFLEX">bhimoff</a> and the Hexbright team for excellent code to work with.
 
 
 hexbright_factory

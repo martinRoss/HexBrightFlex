@@ -10,7 +10,9 @@ Software built for the bike commuter. Firmware includes -
 * Double click to turn off (In Progress)
 * Goal will be to Optimize brightness for commute time
 * Are there ways to test different levels of the ACC? (Thinking safety features here)
-Thank you to to <a href="https://github.com/bhimoff/HexBrightFLEX">bhimoff</a>, 
+
+Thank you to <a href="https://github.com/bhimoff/HexBrightFLEX">bhimoff</a> and the Hexbright team for excellent code to work with.
+
 
 
 hexbright_factory

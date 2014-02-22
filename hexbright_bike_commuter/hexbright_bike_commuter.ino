@@ -1,4 +1,4 @@
-/* 
+ return/* 
 
   HexBright firmware for the bike commuter
   
@@ -57,6 +57,7 @@
 byte mode = 0;
 byte lastMode = 0;
 unsigned long btnTime = 0;
+unsigned long dbleTime = 0;
 boolean btnDown = false;
 
 
@@ -241,7 +242,7 @@ void loop()
     // Enable or Disable accelerometer
     byte disable[] = {ACC_REG_MODE, 0x00};  // Mode: standby!
     byte enable[] = {ACC_REG_MODE, 0x01};  // Mode: active!
-    Wire.beginTransmission(ACC_ADDRESS);
+    Wire.beginTransmission(ACC_ADDRESS);#N
     if (newMode == MODE_OFF) {
       Wire.write(disable, sizeof(disable));
     } else Wire.write(enable, sizeof(enable));
